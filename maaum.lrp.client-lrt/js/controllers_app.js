@@ -18,7 +18,11 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
                 else $scope.lrpModel.isMenuOff = true;
             }
         });
+<<<<<<< HEAD
         
+=======
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
         $scope.classholder = [
             'lrpState0',
             'lrpState1',
@@ -55,12 +59,22 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
                 listStatePage: ['','']                
             },
             {
+<<<<<<< HEAD
                 hasTab: false,
                 baseReload: [
                     { url: 'tasks/list3/LRE', dataSetter: 'taskList' }
                 ],
                 listStatePage: [
                     './templates/Include_List_Individual2.html',
+=======
+
+                hasTab: false,
+                baseReload: [
+                    { url: 'tasks/list', dataSetter: 'taskList' }
+                ],
+                listStatePage: [
+                    './templates/Include_List_Individual.html',
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
                     './templates/Include_List_SelectedIndividual.html'
                 ]                
             },
@@ -170,12 +184,24 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
         }
 
         function callbackChecker(obParam) {
+<<<<<<< HEAD
             console.log("callback:"+JSON.stringify(obParam));
             if (obParam === undefined || obParam.callback === undefined || obParam.callback === null) return;
+=======
+            
+            console.log("callback:"+JSON.stringify(obParam));
+
+            if (obParam === undefined || obParam.callback === undefined || obParam.callback === null) return;
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
             if (obParam.callbackArg === undefined || obParam.callbackArg === null) {
                 obParam.callback();
                 return;
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
             //console.log(obParam);
             obParam.callback(obParam.callbackArg);
         }
@@ -216,8 +242,11 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
         };
 
         $scope.initLRP = function() {
+<<<<<<< HEAD
 
             
+=======
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
             $scope.lrpServer = lrpServer;
 
             console.log($scope.lrpServer)
@@ -364,10 +393,17 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
                 },
                 {
                     baseReload: [
+<<<<<<< HEAD
                         { url: 'tasks/list3/LRE', dataSetter: 'taskList' }
                     ],
                     listStatePage: [
                         './templates/Include_List_Individual2.html',
+=======
+                        { url: 'tasks/list', dataSetter: 'taskList' }
+                    ],
+                    listStatePage: [
+                        './templates/Include_List_Individual.html',
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
                         './templates/Include_List_SelectedIndividual.html'
                     ]                    
                 },
@@ -471,10 +507,15 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
                     return;
                 }
             }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
             var i;
 
             $scope.lrpModel.statePage = arg;
 
+<<<<<<< HEAD
             // add subpage 이동
             if ( $scope.lrpModel.statePage == 2 && arg2 == 'N' )  {                
                 // 메인메뉴 눌렀다, LR, RT 고를수 있는 메인으로 가기위해 초기화.
@@ -494,6 +535,21 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
                 pageBluePrint[2] = {
                     baseReload: [
                         { url: 'tasks/list3/LT', dataSetter: 'taskList' }
+=======
+            //add subpage 이동
+            if ( $scope.lrpModel.statePage == 2 && arg2 == 'N' )  {
+                hasTab: false;
+                $state.transitionTo('app.subPage');
+                //return;
+            }
+            
+            //add LT 추가 
+            if ( $scope.lrpModel.statePage === 2 && arg2 == 'LT' )  {
+                $scope.lrpModel.pageTag[2] = '기능훈련';
+                pageBluePrint[2] = {
+                    baseReload: [
+                        { url: 'tasks/list1', dataSetter: 'taskList' }
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
                     ],
                     listStatePage: [
                         './templates/Include_List_Individual2.html',
@@ -503,11 +559,18 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
             } 
             //add RT 
             else if ( $scope.lrpModel.statePage === 2 && arg2 == 'RT' )  {
+<<<<<<< HEAD
                 $scope.lrpModel.pageTag[2] = '기능훈련RT';
                 
                 pageBluePrint[2] = {
                     baseReload: [
                         { url: 'tasks/list3/RT', dataSetter: 'taskList' }
+=======
+                $scope.lrpModel.pageTag[2] = '기능훈련';
+                pageBluePrint[2] = {
+                    baseReload: [
+                        { url: 'tasks/list2', dataSetter: 'taskList' }
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
                     ],
                     listStatePage: [
                         './templates/Include_List_Individual2.html',
@@ -516,6 +579,10 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
                 };               
             }
                         
+<<<<<<< HEAD
+=======
+                                    
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
             if ($scope.lrpModel.statePage === 5) {
                 $scope.isOffline = true;
 
@@ -543,6 +610,12 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
 
                 if ($scope.lrpModel.userData !== null) pageBluePrint[4].baseReload.url = 'progressTemplates/list/' + $scope.lrpModel.userData._id;
 
+<<<<<<< HEAD
+=======
+                
+                console.log("[listStatePage length  >> ]" + pageBluePrint[arg].listStatePage.length);
+                
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
                 for (i = 0; i < pageBluePrint[arg].listStatePage.length; i++) {
                     $scope.lrpModel.listPageHolder[i] = pageBluePrint[arg].listStatePage[i];
                 }
@@ -944,10 +1017,13 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
             callbackChecker(obParam);
         };
 
+<<<<<<< HEAD
 
 
         //db.getCollection('tasks').update( {'taskType':'LRE'},  {$set :'taskType':'RT'}})
 
+=======
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
         $scope.addOfficialTest = function() {
             $scope.loadDataPost({
                 url: 'officialtestdata/',
@@ -1577,10 +1653,17 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
                 case 3:
                     $scope.orderData = {
                         tag: '개별평가 선택',
+<<<<<<< HEAD
                         template: './templates/Include_List_Individual2.html'
                     };
 
                     vParm = { url: 'tasks/list3/LRE', dataSetter: 'taskList' };
+=======
+                        template: './templates/Include_List_Individual.html'
+                    };
+
+                    vParm = { url: 'tasks/list', dataSetter: 'taskList' };
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
                     $scope.lrpModel.selectedHomework = null;
                     break;
 
@@ -1721,6 +1804,10 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
                 $scope.makeShape();
             }
         }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
         
         $scope.initDrawingPad = function(vw = 0.5, vh = 0.7, lock = false, drawType) {
             var el = document.getElementById('sketchpad');
@@ -1745,6 +1832,10 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
             $scope.vw = vw;
             $scope.vh = vh;
             $scope.aspectRatio = aspectRatio;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
         }
 
         $scope.dpUndo = function() {
@@ -1779,8 +1870,15 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
 
             // console.log("bbbb=" +  JSON.stringify( $scope.lrpModel.selectedResult.tasks[$scope.lrpModel.taskPivot].problems[0].drawJson));
 
+<<<<<<< HEAD
             $scope.pad.loadJSON(JSON.parse($scope.lrpModel.selectedResult.tasks[$scope.lrpModel.taskPivot].problems[0].drawJson));
                         
+=======
+            
+            $scope.pad.loadJSON(JSON.parse($scope.lrpModel.selectedResult.tasks[$scope.lrpModel.taskPivot].problems[0].drawJson));
+            
+            
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
             if (bg) {
                 console.log($scope.lrpModel.selectedResult.tasks[$scope.lrpModel.taskPivot].problems[0]);
                 drawingPadUtil.loadBackgroundGrading($scope, true);
@@ -2173,7 +2271,11 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
         error(function (data, status) { console.log('Error : loadDataPost : ' + lrpServer + obParam.url + ' =>(' + obParam.dataSetter + ' : ' + obParam.callback + ') ! status : ' + status); });
         */
 
+<<<<<<< HEAD
         $scope.loginData = { username: 'admin', password: 'rhfueo!' };
+=======
+        //$scope.loginData = { username: 'admin', password: 'rhfueo!' };
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
         //$scope.loginData = { username: 'testpatient', password: 'rhfueo!' };
         
         $scope.doLogin = function() {
@@ -2276,6 +2378,7 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
 
         function setLogin() {
             var arg = 0;
+<<<<<<< HEAD
             $scope.lrpModel.isMenuToggle = false;
             $scope.lrpModel.isMenuOff = true;                
             
@@ -2288,6 +2391,18 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
                 $scope.subLocation(arg);
                 return;
             }
+=======
+            if ($scope.lrpModel.userData.roles == 'admin')
+                arg = 0;
+            else if ($scope.lrpModel.userData.roles == 'therapist')
+                arg = 1;
+            else if ($scope.lrpModel.userData.roles == 'patient')
+                arg = 2;
+
+            $scope.lrpModel.isMenuToggle = false;
+            $scope.lrpModel.isMenuOff = true;
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
             $scope.menuActivate(arg);
         }
 
@@ -2430,7 +2545,11 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
         $scope.go_findpassword = function() {
             $scope.logonInclude = './templates/Include_Login_Find.html';
         };
+<<<<<<< HEAD
 
+=======
+        
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
         $scope.forgotData = {
             email: ''   
         }
@@ -2453,18 +2572,41 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
             $scope.logonInclude = './templates/Include_Login_First.html';
         };
 
+<<<<<<< HEAD
 
         $scope.findAccount_email = function() {
             $scope.FindeMsg = '';
             
             if ($scope.forgotData.email == "" ) {
                 $scope.FindeMsg = "이메일 주소를 입력하세요.";
+=======
+        $scope.findAccount_email = function() {
+            /*
+            $ionicPopup.alert({
+                title: '개발중', //'발송',
+                content: '이메일을 통한 계정 찾기' //'이메일로 발송 하였습니다.'
+            });
+
+            $scope.cancleAndGoLogin();
+            */
+            
+            if ($scope.forgotData.email == "" ) {
+                $ionicPopup.alert({
+                    title: '확인',
+                    content: 'email 주소를 입력하세요.'
+                });
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
                 return;
             }
                         
             var forgotData = {
+<<<<<<< HEAD
                 email: $scope.forgotData.email
                 //username : 'theingka'
+=======
+                email: $scope.forgotData.email,
+                username : 'theingka'
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
             };            
             $http.post($scope.lrpServer + "auth/forgot", forgotData).
             success(function(data, status) {
@@ -2473,7 +2615,11 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
                 }
 
                 $ionicPopup.alert({
+<<<<<<< HEAD
                     title: '확인',
+=======
+                    title: '이메일발송',
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
                     content: '이메일 발송했습니다.'
                 });
 
@@ -2481,7 +2627,11 @@ angular.module('LRProject.controllers', ['LRProject.services', 'LRProject.contro
             }).
             error(function(data) {
                 $ionicPopup.alert({
+<<<<<<< HEAD
                     title: '확인',
+=======
+                    title: '이메일발송 실패',
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
                     content: data.message
                 });
             });            

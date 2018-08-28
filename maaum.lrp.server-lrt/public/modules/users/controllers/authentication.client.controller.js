@@ -146,6 +146,7 @@ angular.module('users').controller('ManagerController', ['$scope', '$stateParams
                 alert(response.message);
             });
         };
+<<<<<<< HEAD
 
         $scope.remove = function() {
             if (confirm('제거하시겠습니까?')) {
@@ -163,6 +164,15 @@ angular.module('users').controller('ManagerController', ['$scope', '$stateParams
 angular.module('users').controller('CenterManagerController', ['$scope', '$stateParams', '$http', '$location', 'Authentication', 'Centers', 'Managers', 'Users', 'Pay',
     function($scope, $stateParams, $http, $location, Authentication, Centers, Managers, Users, Pay) {
 
+=======
+    }
+]);
+
+angular.module('users').controller('CenterManagerController', ['$scope', '$stateParams', '$http', '$location', 'Authentication', 'Centers', 'Managers', 'Users', 'Pay',
+    function($scope, $stateParams, $http, $location, Authentication, Centers, Managers, Users, Pay) {
+
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
         $scope.signup = function() {
 
             //center_id
@@ -248,9 +258,14 @@ angular.module('users').controller('AdminSignUpController', ['$scope', '$http', 
     }
 ]);
 
+<<<<<<< HEAD
 
 angular.module('users').controller('PatientController', ['$scope', '$http', '$location', 'Authentication', 'Patients', '$stateParams','$upload',    
     function($scope, $http, $location, Authentication, Patients, $stateParams, $upload) {
+=======
+angular.module('users').controller('PatientController', ['$scope', '$http', '$location', 'Authentication', 'Patients', '$stateParams',
+    function($scope, $http, $location, Authentication, Patients, $stateParams) {
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
 
         $scope.authentication = Authentication;
 
@@ -259,11 +274,16 @@ angular.module('users').controller('PatientController', ['$scope', '$http', '$lo
         var manager = $scope.authentication.user.roles === 'manager';
         $scope.title = "환자 계정 정보 입력";
 
+<<<<<<< HEAD
         $scope.findOne = function() {            
             $http.get('/therapist/list/').success(function(therapists) {
 
                 // console.log(JSON.stringify(therapists));
 
+=======
+        $scope.findOne = function() {
+            $http.get('/therapist/list/').success(function(therapists) {
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
                 $scope.therapists = therapists;
                 $scope.title = "환자 계정 정보 수정";
                 if (!(admin || therapist || manager)) return;
@@ -273,6 +293,7 @@ angular.module('users').controller('PatientController', ['$scope', '$http', '$lo
                 $scope.credentials.password = undefined;
 
                 $scope.isUpdate = true;
+<<<<<<< HEAD
                 
                 /*
                 $scope.isShowIndex = false;
@@ -344,6 +365,11 @@ angular.module('users').controller('PatientController', ['$scope', '$http', '$lo
 
 
 
+=======
+            });
+        };
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
         // Update a user profile
         $scope.updateUserProfile = function(isValid) {
             if (isValid) {
@@ -361,6 +387,7 @@ angular.module('users').controller('PatientController', ['$scope', '$http', '$lo
 
                 var user = $scope.credentials;
 
+<<<<<<< HEAD
                 console.log("userDDDD =="+ JSON.stringify(user));
 
                 /*
@@ -382,6 +409,8 @@ angular.module('users').controller('PatientController', ['$scope', '$http', '$lo
     }
                 */
                 
+=======
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
                 user.$update(function(response) {
                     $scope.success = true;
                 }, function(response) {

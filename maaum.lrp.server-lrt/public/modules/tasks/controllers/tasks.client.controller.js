@@ -49,6 +49,7 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
         }, {
             id: 'pick08',
             label: 'Rey 복합도형 재인 [08]'
+<<<<<<< HEAD
         }
         , {
             id: 'draw-one2',
@@ -68,6 +69,20 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
         }    
         ];
         
+=======
+        }, {
+            id: 'draw-one2',
+            label: '그리기2'
+        }];
+
+        $scope.type_ = [{
+            id: 'LT',
+            label: 'LT'
+        }, {
+            id: 'LRT',
+            label: 'LRT'
+        }];
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
 
         $scope.scoreType = [{
             id: 'n/a',
@@ -98,6 +113,7 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
             label: '시각주의력 [30]'
         }];
 
+<<<<<<< HEAD
 
 
         $scope.taskTypeSelect_problem = [{
@@ -143,11 +159,19 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
         $scope.dt = function() {
 
             // alert("122");
+=======
+        // Define global instance we'll use to destroy later
+        var dt;
+
+        $scope.dt = function() {
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
             if (!$.fn.dataTable) return;
 
             dt = $('#dt').dataTable({
                 processing: true,
                 serverSide: true,
+<<<<<<< HEAD
                 // ajax: { url: "/tasks/DT" },
 
                 ajax: { url: "/tasks/DT" , data:{taskTypeSearch: $scope.task.selectTaskType } }, // 조건 추가.
@@ -155,6 +179,13 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
                 "autoWidth": false,
                 
                 
+=======
+                ajax: { url: "/tasks/DT" },
+                "autoWidth": false,
+                /*tableTools: {
+                 sSwfPath : '/lib/datatables-tabletools/swf/copy_csv_xls_pdf.swf'
+                 },*/
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
                 responsive: true,
                 language: {
                     "emptyTable": "레코드가 없습니다.",
@@ -187,7 +218,10 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
                 aoColumns: [
                     { mData: 'category', sTitle: "범주", defaultContent: "" },
                     { mData: 'name', sTitle: "과제명", defaultContent: "" },
+<<<<<<< HEAD
                     { mData: 'taskType', sTitle: "업무타입", defaultContent: "" },
+=======
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
                     {
                         "mData": null,
                         sTitle: "기능",
@@ -205,7 +239,11 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
         };
 
         $scope.init = function() {
+<<<<<<< HEAD
             
+=======
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
             try {
                 $scope.task.preview_file.value = $scope.task.preview;
             } catch (err) {;
@@ -222,6 +260,7 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
                 strType: 'text'
             });
 
+<<<<<<< HEAD
             $scope.categoryList=[];
             getCategoryList();
         };
@@ -254,6 +293,18 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
             });    
 
         }
+=======
+
+            $scope.tttt1="sesdfsdfsdf";
+
+
+            
+        };
+
+      
+
+        $scope.testList=[{"key1":"val1","key2":"aewdf2"},{"key1":"dsfdsf","key2":"sdfsdf"},{"key1":"4tzdsfd","key2":"dsfedf"}]
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
 
         $scope.addResource = function() {
             $scope.task.resources.push({
@@ -262,20 +313,48 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
             });
         };
 
+<<<<<<< HEAD
+=======
+        $scope.test111 = function() {
+
+            alert($scope.ddd1);
+            alert(33);
+            $scope.ddd1="asdfedf";
+
+
+
+        }
+        
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
         $scope.removeResource = function(idx) {
             $scope.task.resources.splice(idx, 1);
         };
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
         // Create new Task
         $scope.create = function() {
             $scope.task.preview = $scope.task.preview_file.value;
             // Redirect after save
+<<<<<<< HEAD
 
             alert("$scope.task.taskType=="+$scope.task.taskType);
             
             $scope.task.$save(function(response) {
                 console.log($scope.task);
                 /// taskType
+=======
+            $scope.task.$save(function(response) {
+                
+                // dddddd
+                // Resource {__v: 0, user: "59cbd52af5f8bdff402c46cd", isOpen: true, sortOrder: 1, category: "구성 (Construction)", …}
+                console.log("등록1!!!"+$scope.task);
+                console.log("등록2!!!"+JSON.stringify($scope.task));
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
 
                 var newTask = new Tasks({
                     resources: []
@@ -286,6 +365,10 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
                 });
                 newTask.category = $scope.task.category;
                 newTask.answer = $scope.task.answer;
+<<<<<<< HEAD
+=======
+                newTask.type = $scope.task.type;
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
                 newTask.isOpen = $scope.task.isOpen;
 
                 $scope.task = newTask;
@@ -295,6 +378,11 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
                 // Clear form fields
             }, function(errorResponse) {
                 $scope.error = errorResponse.data.message;
+<<<<<<< HEAD
+=======
+                alert("등록중 에러"+$scope.error);
+                // 'draw-one2' is not a valid enum value for path `answer`.
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
             });
         };
 
@@ -318,9 +406,13 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
         };
 
         $scope.upload = function(resource) {
+<<<<<<< HEAD
             
             var files = resource.files;
             
+=======
+            var files = resource.files;
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
             if (files && files.length) {
                 for (var i = 0; i < files.length; i++) {
                     var file = files[i];
@@ -328,12 +420,18 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
                     $upload.upload({
                         url: 'uploads/',
                         file: file
+<<<<<<< HEAD
 
+=======
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
                     }).progress(function(evt) {
                         resource.progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                         //var progressPercentage = parseInt(100.0 * evt.loaded / evt.total);
                         //console.log('progress: ' + progressPercentage + '% ' + evt.config.file.name);
+<<<<<<< HEAD
 
+=======
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
                     }).success(function(data, status, headers, config) {
                         //console.log("DATA" + data);
                         resource.value = data.file.name;
@@ -383,8 +481,11 @@ angular.module('tasks').controller('TasksController', ['$scope', '$stateParams',
 
         // Find existing Task
         $scope.findOne = function() {
+<<<<<<< HEAD
             // alert("update init");
             getCategoryList();
+=======
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
             $scope.task = Tasks.get({
                 taskId: $stateParams.taskId
             });

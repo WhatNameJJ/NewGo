@@ -39,7 +39,10 @@ module.exports = function(app) {
 	app.route('/users/password/:userId').post(users.hasAuthorization(['admin', 'manager']), users.changePasswordByAdmin);
 	app.route('/users/role/:userId').post(users.hasAuthorization(['admin', 'manager']), users.changeRoleByAdmin);
 	app.route('/auth/forgot').post(users.forgot);
+<<<<<<< HEAD
 	app.route('/auth/forgot_admin').post(users.forgot_admin);
+=======
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
 	app.route('/auth/reset/:token').get(users.validateResetToken);
 	app.route('/auth/reset/:token').post(users.reset);
 	app.route('/auth/adminPasswordReset').get(users.apr);
@@ -51,8 +54,13 @@ module.exports = function(app) {
 	app.route('/auth/removeAdmin').get(users.removeAdmin);
 
 	app.route('/user/datatable').get(users.hasAuthorization(['admin', 'manager', 'doctor']), users.userDT);
+<<<<<<< HEAD
 	app.route('/therapist/datatable').get(users.hasAuthorization(['admin', 'manager', 'therapist', 'doctor']), users.therapistDT);
 	app.route('/therapist/list').get(users.hasAuthorization(['admin', 'manager', 'therapist', 'doctor']), users.therapistList);
+=======
+	app.route('/therapist/datatable').get(users.hasAuthorization(['admin', 'manager', 'doctor']), users.therapistDT);
+	app.route('/therapist/list').get(users.hasAuthorization(['admin', 'manager', 'doctor']), users.therapistList);
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
 	app.route('/patient/datatable').get(users.hasAuthorization(['admin', 'manager', 'therapist', 'doctor']), users.patientDT);
 	app.route('/patient/list').get(users.hasAuthorization(['admin', 'manager','therapist', 'doctor']), users.patientList);
 	app.route('/patient/list/:therapistId').get(users.hasAuthorization(['admin', 'manager','therapist', 'doctor']), users.patientList);

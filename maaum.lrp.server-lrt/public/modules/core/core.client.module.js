@@ -30,8 +30,13 @@ angular.module('core').run(["$rootScope", "$state", "$stateParams", '$window', '
         // Scope Globals
         // ----------------------------------- 
         $rootScope.app = {
+<<<<<<< HEAD
             name: 'LRR-Admin',
             description: 'LRR Admin page',
+=======
+            name: 'LRT-Admin',
+            description: 'LRT Admin page',
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
             developer: "(주) 마음",
             site: 'http://maaum.net',
             year: ((new Date()).getFullYear()),

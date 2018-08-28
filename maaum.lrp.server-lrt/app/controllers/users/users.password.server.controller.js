@@ -56,6 +56,7 @@ exports.forgot = function(req, res, next) {
             });
         },
         // Lookup user by username
+<<<<<<< HEAD
         /*
         function(token, done) {
             if (req.body.username) {
@@ -166,6 +167,8 @@ exports.forgot_admin = function(req, res, next) {
             });
         },
         // Lookup user by username
+=======
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
         function(token, done) {
             if (req.body.username) {
                 User.findOne({
@@ -395,7 +398,11 @@ exports.changeRoleByAdmin = function(req, res) {
     var newUserRole = req.body.newUserRole;
 
     if (req.user) {
+<<<<<<< HEAD
         if (req.body.newUserRole) { // 권한세팅 수정
+=======
+        if (req.body) {
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
             User.findById(req.params.userId, function(err, a_user) {
                 if (!err && a_user) {
                     a_user.roles = newUserRole;
@@ -442,6 +449,7 @@ exports.changePasswordByAdmin = function(req, res) {
                                 (a_user.roles === 'manager' && user.center.toString() === a_user.center.toString()) ||
                                 (a_user.roles === 'therapist' >= 0 && user.assignedTherapist === a_user._id)) { // 3 condition
                                 if (passwordDetails.newPassword === passwordDetails.verifyPassword) {
+<<<<<<< HEAD
                                     /*
                                     user.password = passwordDetails.newPassword;
                                     delete user.salt;
@@ -451,6 +459,11 @@ exports.changePasswordByAdmin = function(req, res) {
                                     user.salt = new Buffer(crypto.randomBytes(16).toString('base64'), 'base64');
                                     user.password = HashPassword(user.salt, user.password);
                                     
+=======
+                                    user.password = passwordDetails.newPassword;
+                                    delete user.salt;
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
                                     user.save(function(err) {
                                         if (err) {
                                             return res.status(400).send({

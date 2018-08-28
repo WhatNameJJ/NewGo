@@ -279,7 +279,11 @@ exports.getkeynum = function(req, res) {
 exports.hasAuthorization = function(req, res, next) {
     if (req.user.roles === 'admin') {
         next();
+<<<<<<< HEAD
     } else if (req.user.roles === 'manager' || req.user.roles === 'therapist'  ) {
+=======
+    } else if (req.user.roles === 'manager') {
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
         next();
     } else {
         return res.status(403).send('User is not authorized');

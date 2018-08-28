@@ -8,16 +8,27 @@ var mongoose = require('mongoose'),
     Problem = mongoose.model('Problem'),
     Center = mongoose.model('Center'),
     Task = mongoose.model('Task'),
+<<<<<<< HEAD
     MyTaskCategory = mongoose.model('MyTaskCategory'),
+=======
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
     _ = require('lodash');
 
 /**
  * Create a Problem
  */
 exports.create = function(req, res) {
+<<<<<<< HEAD
     var problem = new Problem(req.body);
     problem.user = req.user;
 
+=======
+    alert(req);
+    alert(res);
+    var problem = new Problem(req.body);
+    problem.user = req.user;
+alert(problem);
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
     Task.findById(problem.refTask).exec(function(err, task) {
         if (err) {
             return res.status(400).send({
@@ -42,11 +53,15 @@ exports.create = function(req, res) {
     });
 };
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
 exports.DT = function getData(req, res) {
     getTaskList(req, res, getData2);
 };
 
+<<<<<<< HEAD
 
 // 업무 가테고리 조회.
 function getData2(req, res, taskList) {
@@ -118,10 +133,20 @@ function getData3(req, res, taskList, taskCategory) {
                  }
              }
         }   
+=======
+function getData2(req, res, taskList) {
+    var conditions = {};
+    conditions.refTask = { $in: taskList };
+
+    Problem.dataTable(req.query, { 'conditions': conditions }, function(err, data) {
+        if (err) console.log(err);
+        console.log(data);
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
         res.send(data);
     });
 }
 
+<<<<<<< HEAD
 
 function getTaskList(req, res, callback) {
     // 1
@@ -129,6 +154,11 @@ function getTaskList(req, res, callback) {
 
     // console.log("problem req.query ===="+JSON.stringify(req.query));
     // console.log("problem req.params ===="+JSON.stringify(req.params));
+=======
+function getTaskList(req, res, callback) {
+
+    console.log(req.user);
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
 
     var query = {};
     if (req.user.roles !== 'admin') {
@@ -150,8 +180,11 @@ function getTaskList(req, res, callback) {
         }));
     });
 }
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
 /**
  * Show the current Problem
  */
@@ -211,11 +244,14 @@ exports.delete = function(req, res) {
  * List of Problems
  */
 exports.list = function(req, res) {
+<<<<<<< HEAD
     
     console.log("pppppp: list1");
     console.log("pppppp: req"+JSON.stringify(req.params));
 
 
+=======
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
     Problem.find().sort('-created').populate('user', 'name').populate('refTask', 'center isOpen').exec(function(err, problems) {
         if (err) {
             return res.status(400).send({
@@ -232,6 +268,10 @@ exports.list = function(req, res) {
     });
 };
 
+<<<<<<< HEAD
+=======
+// 문제 조회
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
 exports.listByTask = function(req, res) {
     if (req.body.taskID === undefined) {
         return res.status(400).send({
@@ -246,6 +286,11 @@ exports.listByTask = function(req, res) {
     var taskID = req.body.taskID;
     var setNO = req.body.setNum;
 
+<<<<<<< HEAD
+=======
+    console.log("ddd _ Problem.find_1::taskID="+taskID);
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
     Problem.find({
         'refTask': taskID,
         'name': setNO
@@ -254,7 +299,10 @@ exports.listByTask = function(req, res) {
             return res.status(400).send({
                 message: errorHandler.getErrorMessage(err)
             });
+<<<<<<< HEAD
             
+=======
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
         } else {
             var rst = [];
             problems = problems.filter(function(problem) {
@@ -271,12 +319,27 @@ exports.listByTask = function(req, res) {
                 p.seq = x.seq;
                 p.def = [];
                 p.res = [];
+<<<<<<< HEAD
                 x.resources.forEach(function(x, index) {
+=======
+
+                x.resources.forEach(function(x, index) {
+
+                    console.log("ddd _ Problem.find_2::x._id="+x._id);
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
                     var r = {};
                     r._id = x._id;
                     r.value = x.value;
                     r.name = x.name;
                     r.resType = x.resType;
+<<<<<<< HEAD
+=======
+                    r.note = x.note;
+
+                    console.log("ddd _ Problem.find_2::x.note = "+x.note);
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
                     if (x.isDefinition === true) {
                         p.def.push(r);
                     } else {
@@ -296,7 +359,13 @@ exports.listByTask = function(req, res) {
  * Problem middleware
  */
 exports.problemByID = function(req, res, next, id) {
+<<<<<<< HEAD
     console.log("in");
+=======
+    
+    console.log("ddd _ problemByID::"+id);
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
     Problem.findById(id).populate('user', 'name').populate('refTask', 'name center isOpen').exec(function(err, problem) {
         if (err) return next(err);
         if (!problem) return next(new Error('Failed to load Problem ' + id));
@@ -304,6 +373,12 @@ exports.problemByID = function(req, res, next, id) {
         if (problem.refTask.isOpen === false && req.user.center.equals(problem.refTask.center) === false) {
             return res.status(400).send("has no permission");
         } else {
+<<<<<<< HEAD
+=======
+
+            console.log("ddd _ problemByID2::"+problem);
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
             req.problem = problem;
             next();
         }

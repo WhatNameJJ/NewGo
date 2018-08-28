@@ -3,8 +3,12 @@
 angular.module('users').controller('SettingsController', ['$scope', '$http', '$location', 'Users', 'Authentication', '$stateParams',
     function($scope, $http, $location, Users, Authentication, $stateParams) {
         $scope.user = Authentication.user;
+<<<<<<< HEAD
         $scope.roles = "";
         
+=======
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
         if (user.roles === 'admin') {
             $scope.roles = [{ text: "전체관리자", value: "admin" },
                 { text: "기관관리자", value: "manager" },
@@ -18,7 +22,11 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
                 { text: "환자", value: "patient" }
             ];
         }
+<<<<<<< HEAD
                
+=======
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
         // If user is not signed in then redirect back home
         if (!$scope.user) $location.path('/');
 
@@ -33,6 +41,10 @@ angular.module('users').controller('SettingsController', ['$scope', '$http', '$l
 
         $scope.changeUserRoles = function() {
             $scope.success = $scope.error = null;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
             $http.post('/users/role/' + $stateParams.userId, $scope.userInfo).success(function(response) {
                 // If successful show success message and clear form
                 $scope.success = true;

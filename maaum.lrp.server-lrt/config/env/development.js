@@ -3,7 +3,11 @@
 module.exports = {
     db: 'mongodb://localhost/new-lrr-dev',
     app: {
+<<<<<<< HEAD
         title: 'LRR admin'
+=======
+        title: 'LRT admin'
+>>>>>>> 24a093b078937ef9a0d02fb34ef1cddd036cbaad
     },
     facebook: {
         clientID: process.env.FACEBOOK_ID || 'APP_ID',
